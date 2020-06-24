@@ -8,8 +8,8 @@
 | password | string | null: false |
 
 ### Association
-has_many : massage
-belongs_to :group
+has_many : massages
+has_many :groups
 
 ##messagesテーブル
 | cloumn | type | options |
@@ -20,8 +20,8 @@ belongs_to :group
 
 
 ### Association
-has_many :user
-has_many :group
+belongs_to :user
+belongs_to  :group
 
 ##groups_usersテーブル
 | cloumn | type | options |
