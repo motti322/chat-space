@@ -9,11 +9,20 @@
 
 ### Association
 - has_many : massages
-- has_many :groups
+- has_many : groups ,through : groups_users
+
+##groupsテーブル
+| cloumn | type | options |
+| ------ | ---- | ------- |
+| group_id | integer | null: false, foregin_key: true |
+
+### Association
+- has_many : users, through :groups_users
 
 ##messagesテーブル
 | cloumn | type | options |
 | ------ | ---- | ------- |
+| images | string | |
 | messages | text | |
 | user_id| string | null: false, foregin_key: true |
 | group_id | integer | null: false, foregin_key: true |
