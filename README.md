@@ -8,6 +8,7 @@
 | password | string | null: false |
 
 ###Association
+belong_to
 
 has_many_through :
 ##messagesテーブル
