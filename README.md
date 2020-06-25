@@ -3,28 +3,31 @@
 ##usersテーブル
 | cloumn | type | options |
 | ------ | ---- | ------- |
-| user_id | string | null: false, foregin_key: true |
-| e-mail | string | null: false, foregin_key: true |
+| name | string | null: false |
+| e-mail | string | null: false |
 | password | string | null: false |
 
 ### Association
-- has_many : massages
+- has_many : messages
 - has_many : groups ,through : groups_users
+- has_many : groups_users
 
 ##groupsテーブル
 | cloumn | type | options |
 | ------ | ---- | ------- |
-| group_id | integer | null: false, foregin_key: true |
+| groupname | string | null: false |
 
 ### Association
 - has_many : users, through :groups_users
+- has_many : groups_users
+- has_many : messages
 
 ##messagesテーブル
 | cloumn | type | options |
 | ------ | ---- | ------- |
-| images | string | |
-| messages | text | |
-| user_id| string | null: false, foregin_key: true |
+| image | string | |
+| message | text | |
+| user_id| integer | null: false, foregin_key: true |
 | group_id | integer | null: false, foregin_key: true |
 
 
