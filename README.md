@@ -15,7 +15,7 @@
 ##groupsテーブル
 | cloumn | type | options |
 | ------ | ---- | ------- |
-| groupname | string | null: false |
+| name | string | null: false |
 
 ### Association
 - has_many : users, through :groups_users
