@@ -4,14 +4,15 @@
       .top-items__name
         = current_user.name
       .top-items__icon
-        = link_to "#", class: "top-items__btn" do
-          = icon('far', 'edit')
+        = link_to new_group_path do
+          = icon('far', 'edit' , class: "top-items__btn")
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog' , class: 'top-items__btn')
           
   .side-bar__group-list
-    .group-box
-      .group-box__name
-        moti
-      .group-box__messages
-        まだありません
+    - current_user.groups.each do |group|
+      .group-box
+        .group-box__name
+          = group.name
+        .group-box__messages
+          メッセージはまだありません
