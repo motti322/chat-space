@@ -2,33 +2,40 @@
   .chat-main__group-info
     .top-box-left
       .top-box-left__groups
-        moti
+        = @group.name
       .top-box-left__member
-        member : motizo
+        member :
+        .member-list
+          - @group.users.each do |user|
+            = user.name
+
     .top-box-right
-      = link_to "#", class: "top-box-right__edit" do
+      = link_to edit_group_path(@group), class: "top-box-right__edit" do
         Edit
   .chat-main__message-list
-    .message-box
-      .message-box__name
-        moti 
-      .message-box__date
-        2020 7月13日 20:22 (月)
-    .chat
-      おはよう
+    = render @messages
+
+    // .message-box
+    //   .message-box__name
+    //     moti 
+    //   .message-box__date
+    //     2020 7月13日 20:22 (月)
+    // .chat
+    //   おはよう
     
-    .message-box2
-      .message-box2__name2
-        moti 
-      .message-box2__date2
-        2020 7月13日 20:22 (月)
-    .chat2
-      こんにちは
+    // .message-box2
+    //   .message-box2__name2
+    //     moti 
+    //   .message-box2__date2
+    //     2020 7月13日 20:22 (月)
+    // .chat2
+    //   こんにちは
+
   .chat-main__message-form
-    %input{type: "text",class: "form-box", placeholder: "type a message"}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: "form-box", placeholder: "type a message"
       .form-box__image
-        %label{class: "form-box__image"}
+        = f.label :image, class: "form-box__image" do
           = icon('far', 'image')
-          %input{type: "file", class: "form-box__file"}
-    .send-btn
-      send
+          = f.file_field :image, class: "form-box__file"
+      = f.submit 'Send', class: 'send-btn'
